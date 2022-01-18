@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/BSG-Stranded-App/static/css/main.aacdc208.css",
-    "main.js": "/BSG-Stranded-App/static/js/main.f6edf3ad.js",
+    "main.js": "/BSG-Stranded-App/static/js/main.113607f9.js",
     "static/js/787.f354dbd7.chunk.js": "/BSG-Stranded-App/static/js/787.f354dbd7.chunk.js",
     "index.html": "/BSG-Stranded-App/index.html",
     "main.aacdc208.css.map": "/BSG-Stranded-App/static/css/main.aacdc208.css.map",
-    "main.f6edf3ad.js.map": "/BSG-Stranded-App/static/js/main.f6edf3ad.js.map",
+    "main.113607f9.js.map": "/BSG-Stranded-App/static/js/main.113607f9.js.map",
     "787.f354dbd7.chunk.js.map": "/BSG-Stranded-App/static/js/787.f354dbd7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aacdc208.css",
-    "static/js/main.f6edf3ad.js"
+    "static/js/main.113607f9.js"
   ]
 }
