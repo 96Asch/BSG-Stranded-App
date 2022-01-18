@@ -11,9 +11,9 @@ import update from 'immutability-helper';
 
 
 const pubnub = new PubNub({
-    publishKey : "pub-c-8a52cd59-8e69-4b03-bb18-01b788f3d512",
-    subscribeKey : "sub-c-7609cf94-7225-11ec-9c8d-9eb9413efc82",
-    secretKey: "sec-c-Nzc4MmZkOGItOWFlZC00YzkxLWI4MGMtYjAxNmQ5ZmNiNDMw",
+    publishKey : "pub-c-8fbea598-c1c7-407c-8810-3e1ffd745e44",
+    subscribeKey : "sub-c-e53297aa-789e-11ec-add2-a260b15b99c5",
+    secretKey: "sec-c-NjYwMmYzMWQtNGQyYy00ZWRmLTkwZDctMDQ2ZGZhODMzMTk0",
     uuid : "serverUUID-01920392"
 });
 
