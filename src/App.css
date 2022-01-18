@@ -1,0 +1,23 @@
+
+.panel {
+  background-color: rgba(102, 185, 236, 0.301);
+  padding: 10px 10px 10px 10px;
+  margin: 5px 5px 5px 5px;
+  border-radius: 5px;
+}
+
+.fullSize {
+  height : 100%;
+  
+}
+
+.scrollable {
+  overflow-y: scroll;
+}
+
+.main-dashboard {
+  justify-content: center;
+  text-align: center;
+  overflow-y: auto;
+  height: 100%;
+}

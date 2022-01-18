@@ -1,0 +1,11 @@
+
+.menu-button {
+    padding: 10px 10px 10px 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    /* width : 200px; */
+}
+
+.menu-button:hover {
+    background-color: rgba(125, 198, 231, 0.5);
+}
