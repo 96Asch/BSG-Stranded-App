@@ -31,8 +31,23 @@ export default function Graph({taskData}) {
         setChartTitle(taskData.name);
     }, [taskData, setChartTitle]);
 
-
-        
+    const CustomizedLabelB = ({ kapi, metric, viewBox }) => {
+        return (
+            <text
+                x={0}
+                y={0}
+                dx={-200}
+                dy={40}
+                textAnchor="start"
+                width={180}
+                transform="rotate(-90)"
+                // If I uncomment the next line, then the rotation stops working.
+                // scaleToFit={true}
+            >            
+                Number of times picked
+            </text>
+        );
+    };
     return (
         <Flex container flexDirection="column">
         <h3>{chartTitle}</h3>
@@ -48,7 +63,7 @@ export default function Graph({taskData}) {
             }}>
             <CartesianGrid strokeDasharray="3 3"/>
             <XAxis dataKey="name"/>
-            <YAxis allowDecimals={false}/>
+            <YAxis allowDecimals={false} label={<CustomizedLabelB/>} />
             <Tooltip/>
             <Bar dataKey="count">
             {
