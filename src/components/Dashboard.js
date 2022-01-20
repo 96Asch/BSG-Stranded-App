@@ -31,17 +31,23 @@ export default function Dashboard({strandedData, dataDispatch, channel, setUserC
         const handleMessage = event => {
             if (event.message.hasOwnProperty("flag")) 
             {
+                console.log(event.message);
                 switch (event.message.flag) {
                     case "START_GAME":
                     case "INIT_CHANNEL":
                         break;
                     case "SEND_GAME_DATA":
-                        const data = {
-                            dilemma : event.message.dilemma,
-                            task : event.message.task,
-                            character : event.message.character
-                        }
-                        dataDispatch({type : "add", data : data});
+
+                        event.message.data.forEach((d) => {
+
+                            const data = {
+                                dilemma : d.dilemma,
+                                task : d.task,
+                                character : d.character,
+                                ideal : d.ideal
+                            }
+                            dataDispatch({type : "add", data : data});
+                        });
                         break;
                     default:
                         break;
@@ -69,7 +75,7 @@ export default function Dashboard({strandedData, dataDispatch, channel, setUserC
                 <ul>Click on the 'Create Room' button to start a room.</ul>
                 <ul>Enter the pin code into the Stranded login screen.</ul>
                 <ul>When everyone has entered, then start the game using the 'Start Game' button.</ul>
-                <ul>Data will appear after each round in the game.</ul>
+                <ul>Graphs will appear which show the picked characters for each problem.</ul>
                 <ul>Click on 'Clear Data' to remove all received data.</ul>
             </li>
             <hr/>

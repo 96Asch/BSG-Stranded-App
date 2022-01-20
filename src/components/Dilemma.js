@@ -15,6 +15,7 @@ export default function Dilemma({dilemmaData}) {
             {
                 tasks.push({
                     name : data.task,
+                    ideal : data.ideal,
                     content : [data]
                 });
             }

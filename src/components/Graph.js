@@ -6,6 +6,7 @@ import {Flex} from './../Flex';
 export default function Graph({taskData}) {
     const [charData, setCharData] = useState([]); 
     const [chartTitle, setChartTitle] = useState("");
+    const [idealChar, setIdealChar] = useState("");
     
     useEffect(() => {
         const characters = [];
@@ -18,7 +19,7 @@ export default function Graph({taskData}) {
                     name : data.character,
                     count : 1,
                     color : data.color,
-                    ratio : 1
+                    ratio : 1,
                 });
             }
             else
@@ -28,8 +29,9 @@ export default function Graph({taskData}) {
 
         });
         setCharData(characters);
+        setIdealChar(taskData.ideal);
         setChartTitle(taskData.name);
-    }, [taskData, setChartTitle]);
+    }, [taskData, setChartTitle, setIdealChar]);
 
     const CustomizedLabelB = ({ kapi, metric, viewBox }) => {
         return (
@@ -48,6 +50,22 @@ export default function Graph({taskData}) {
             </text>
         );
     };
+
+    const redSVGText = {
+        fill : "red",
+        border : "1px black"
+    }
+
+    const greenSVGText = {
+        fill : "green",
+        border : "1px black"
+    }
+
+    const renderCustomAxisTick = ({ x, y, payload }) => {
+        return <text x={x} y={y} font-weight="bold" transform="translate(-14,10)" style={idealChar == payload.value ? greenSVGText : redSVGText}>{payload.value}</text>
+    }
+
+
     return (
         <Flex container flexDirection="column">
         <h3>{chartTitle}</h3>
@@ -62,7 +80,7 @@ export default function Graph({taskData}) {
                 bottom: 5,
             }}>
             <CartesianGrid strokeDasharray="3 3"/>
-            <XAxis dataKey="name"/>
+            <XAxis dataKey="name" tick={renderCustomAxisTick}  />
             <YAxis allowDecimals={false} label={<CustomizedLabelB/>} />
             <Tooltip/>
             <Bar dataKey="count">
