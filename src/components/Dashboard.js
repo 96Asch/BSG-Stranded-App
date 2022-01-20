@@ -72,7 +72,7 @@ export default function Dashboard({strandedData, dataDispatch, channel, setUserC
                 <ul>Data will appear after each round in the game.</ul>
                 <ul>Click on 'Clear Data' to remove all received data.</ul>
             </li>
-
+            <hr/>
             {strandedData.map((data, index) => 
                 <Dilemma key={index} dilemmaData={data}  /> 
                 )}

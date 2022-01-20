@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Cell, Tooltip } from 'recharts';
+import {Flex} from './../Flex';
 
 
 export default function Graph({taskData}) {
     const [charData, setCharData] = useState([]); 
+    const [chartTitle, setChartTitle] = useState("");
     
     useEffect(() => {
         const characters = [];
         taskData.content.forEach(data => {
             const charIndex = characters.findIndex(element => element.name === data.character);
-            console.log(data.color)
+
             if (charIndex < 0)
             {
                 characters.push({
@@ -26,9 +28,14 @@ export default function Graph({taskData}) {
 
         });
         setCharData(characters);
-    }, [taskData]);
+        setChartTitle(taskData.name);
+    }, [taskData, setChartTitle]);
 
+
+        
     return (
+        <Flex container flexDirection="column">
+        <h3>{chartTitle}</h3>
         <BarChart 
             data={charData}  
             height={300} 
@@ -41,9 +48,9 @@ export default function Graph({taskData}) {
             }}>
             <CartesianGrid strokeDasharray="3 3"/>
             <XAxis dataKey="name"/>
-            <YAxis/>
+            <YAxis allowDecimals={false}/>
             <Tooltip/>
-            <Bar dataKey="count" >
+            <Bar dataKey="count">
             {
                 charData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -51,5 +58,6 @@ export default function Graph({taskData}) {
             }
             </Bar>
         </BarChart>
+        </Flex>
     )
 }
