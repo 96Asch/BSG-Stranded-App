@@ -31,8 +31,8 @@ export default function Dilemma({dilemmaData}) {
     return (
         <Flex >
             <h2>Chapter: {dilemmaData.name}</h2>
-            <Flex container flexDirection="row" margin="5px" flexWrap="wrap">
-                {taskData.map((data, index)=> 
+            <Flex container justifyContent="center" flexDirection="row" margin="5px" flexWrap="wrap">
+                {taskData.map((data, index)=>
                     <Graph key={index} taskData={data} />
                 )}
             </Flex>

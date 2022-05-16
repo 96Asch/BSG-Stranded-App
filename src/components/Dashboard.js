@@ -65,18 +65,20 @@ export default function Dashboard({strandedData, dataDispatch, channel, setUserC
 
     useEffect(() => {
         sessionStorage.setItem(LOCAL_STORAGE_DATA_KEY, JSON.stringify(strandedData));
-        console.log(strandedData);
     }, [strandedData])
 
     return (
         <div className="panel" id="main-dashboard">
-            <h3>Welcome to the Stranded Web App!</h3>
+            <h3>Welkom op de Stranded Web App pagina!</h3>
             <li>
-                <ul>Click on the 'Create Room' button to start a room.</ul>
-                <ul>Enter the pin code into the Stranded login screen.</ul>
-                <ul>When everyone has entered, then start the game using the 'Start Game' button.</ul>
-                <ul>Graphs will appear which show the picked characters for each problem.</ul>
-                <ul>Click on 'Clear Data' to remove all received data.</ul>
+                <ul>Klik op 'Start een nieuw Spel' om een lobby aan te maken.</ul>
+                <ul>Voer de gegeven pin code in, in het Stranded spel en klik op 'Gereed'.</ul>
+                <ul>Wacht totdat elke speler het bericht krijgt om te wachten totdat het spel start en klik op 'Begin Spel' om het spel te starten.</ul>
+                <ul>Na elke ronde verschijnen er grafieken met de beslissingen van elke speler voor elk probleem.</ul>
+                <ul>Deze grafieken geven aan hoeveel keer een personage is gekozen.</ul>
+                <ul>De meest ideale keuze voor een probleem wordt in groen ge-highlight.</ul>
+                <ul>Als laatstse, klik op weer op 'Start een nieuw Spel' om het bord leeg te halen en een nieuw spel te spelen.</ul>
+                <ul>Veel plezier!.</ul>
             </li>
             <hr/>
             {strandedData.map((data, index) => 

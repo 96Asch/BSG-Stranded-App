@@ -9,7 +9,45 @@ export default function Graph({taskData}) {
     const [idealChar, setIdealChar] = useState("");
     
     useEffect(() => {
-        const characters = [];
+        const characters = [
+            {
+                name : "Josh",
+                count : 0,
+                color : "#000000",
+                ratio : 1
+            },
+            {
+                name : "Fiona",
+                count : 0,
+                color : "#000000",
+                ratio : 1
+            },
+            {
+                name : "Lucy",
+                count : 0,
+                color : "#000000",
+                ratio : 1
+            },
+            {
+                name : "Ela",
+                count : 0,
+                color : "#000000",
+                ratio : 1
+            },
+            {
+                name : "Mustafa",
+                count : 0,
+                color : "#000000",
+                ratio : 1
+            },
+            {
+                name : "Peter",
+                count : 0,
+                color : "#000000",
+                ratio : 1
+            }
+
+        ];
         taskData.content.forEach(data => {
             const charIndex = characters.findIndex(element => element.name === data.character);
 
@@ -25,6 +63,7 @@ export default function Graph({taskData}) {
             else
             {
                 characters[charIndex].count += 1;
+                characters[charIndex].color = data.color;
             }
 
         });
@@ -67,12 +106,12 @@ export default function Graph({taskData}) {
 
 
     return (
-        <Flex container flexDirection="column">
+        <Flex container flexDirection="row">
         <h3>{chartTitle}</h3>
         <BarChart 
             data={charData}  
             height={300} 
-            width={400} 
+            width={800} 
             margin={{
                 top: 20,
                 right: 30,

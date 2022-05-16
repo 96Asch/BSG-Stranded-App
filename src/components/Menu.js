@@ -75,10 +75,6 @@ export default function Menu({channel, setChannel, userCount, strandedData, data
         );
     };
 
-    const clearData = event => {
-        dataDispatch({type : "clear"});
-    };
-
     useEffect(() => {
         const storedGameRoom = JSON.parse(sessionStorage.getItem(LOCAL_STORAGE_ROOM_KEY));
         if (storedGameRoom) setChannel(storedGameRoom);
@@ -101,15 +97,14 @@ export default function Menu({channel, setChannel, userCount, strandedData, data
             className="panel"
         >
             <Flex container flexDirection="row" flex="1">
-                <button className="menu-button" onClick={createRoom}>Create Room</button>
-                <button className="menu-button" disabled={!channel} onClick={startGame}>Start Game</button> 
-                <button className="menu-button" onClick={clearData} disabled={strandedData.length === 0}>Clear Data</button>            
+                <button className="menu-button" onClick={createRoom}>Start een nieuw Spel</button>
+                <button className="menu-button" disabled={!channel} onClick={startGame}>Begin Spel</button> 
             </Flex>
             <Flex container flex="1" justifyContent="center">
                 <h2>Stranded {channel.substring(channel.length - 4)}</h2>
             </Flex>
             <Flex container flex="1" justifyContent="center">
-                <h3>Players: {userCount}</h3>
+                <h3>Aantal Spelers: {userCount}</h3>
             </Flex>
         </Flex>
     )
